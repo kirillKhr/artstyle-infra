@@ -33,7 +33,7 @@ resources:
     type: OS::Cinder::Volume
     properties:
       size: 10
-      name: khrustalyov_volume
+      name: khrustalyov_artstyle_volume
 
   volume_attachment:
     type: OS::Cinder::VolumeAttachment
