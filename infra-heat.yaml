@@ -1,0 +1,43 @@
+heat_template_version: 2015-04-30
+
+description: infrastructure for ArtStyle web service
+
+parameters:
+  image_id:
+    type: string
+    description: ID or name of the image to use for the instance
+  flavor_id:
+    type: string
+    description: Flavor to use for the instance
+    default: "m1.small"
+  network_id:
+    type: string
+    description: Network ID for the server port
+
+resources:
+  node:
+    type: OS::Nova::Server
+    properties:
+      key_name: khrustalyov
+      image: { get_param: image_id }
+      flavor: { get_param: flavor_id }
+      networks:
+        - port: { get_resource: server_port }
+
+  server_port:
+    type: OS::Neutron::Port
+    properties:
+      network_id: { get_param: network_id }
+
+  volume:
+    type: OS::Cinder::Volume
+    properties:
+      size: 10
+      name: khrustalyov_volume
+
+  volume_attachment:
+    type: OS::Cinder::VolumeAttachment
+    properties:
+      instance_uuid: { get_resource: node }
+      volume_id: { get_resource: volume }
+      mountpoint: /dev/vdb
