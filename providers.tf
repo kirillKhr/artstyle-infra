@@ -7,10 +7,6 @@ terraform{
         }
     }
 }
- 
-provider "openstack"{
-    cloud = "openstack"
-}
 
 provider "openstack" {
     auth_url    = var.openstack_auth_url
