@@ -20,7 +20,7 @@ variable "node_volume_name"{
   default = "khrustalyov_infra_terra_ansible"
 }
 
-variable "instance_name" {
+variable "node_name" {
   description = "Name of the instance"
   default     = "khrustalyov_infra_terra_ansible"
 }

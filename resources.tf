@@ -10,7 +10,7 @@ resource "openstack_blockstorage_volume_v3" "volume" {
 }
 
 resource "openstack_compute_instance_v2" "node" {
-    name        = var.instance_name
+    name        = var.node_name
     flavor_name = var.flavor_name
     key_pair    = var.key_name
 
