@@ -5,7 +5,7 @@ data "openstack_images_image_v2" "image"{
 
 resource "openstack_blockstorage_volume_v3" "volume" {
   name      = var.node_volume_name
-  image_id  = openstack_images_image_v2.image.id
+  image_id  = data.openstack_images_image_v2.image.id
   size      = 20
 }
 
