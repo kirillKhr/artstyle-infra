@@ -11,7 +11,7 @@ resource "openstack_compute_instance_v2" "node" {
 
     block_device {
         uuid                  = openstack_blockstorage_volume_v3.volume.id
-        source_type           = "image"
+        source_type           = "volume"
         destination_type      = "volume"
         volume_size           = 20
         delete_on_termination = true
