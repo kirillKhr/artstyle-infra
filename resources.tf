@@ -5,7 +5,7 @@ resource "openstack_compute_instance_v2" "node" {
     key_pair    = var.key_name
 
     block_device {
-        uuid                  = "253a6ce9-fd9d-4a14-bbac-097a6eb8fb10"
+        uuid                  = "0ef1546a-5df2-4581-8075-061bbbbe6a52"
         source_type           = "image"
         destination_type      = "volume"
         volume_size           = 20
