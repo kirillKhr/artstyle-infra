@@ -15,6 +15,11 @@ variable "openstack_domain_name" {
   default     = "Default"
 }
 
+variable "node_volume_name"{
+  description = "Name of the node volume"
+  default = "khrustalyov_infra_terra_ansible"
+}
+
 variable "instance_name" {
   description = "Name of the instance"
   default     = "khrustalyov_infra_terra_ansible"
