@@ -38,7 +38,7 @@ variable "network_name" {
   description = "Network to attach"
 }
 
-variable "security_group" {
+variable "security_groups" {
   description = "Security groups to use"
   type        = list(string)
   default     = ["default"]
