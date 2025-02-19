@@ -1,11 +1,16 @@
+data "openstack_images_image_v2" "image"{
+    name        = var.image_name
+    most_recent = true
+}
+
 resource "openstack_blockstorage_volume_v3" "volume" {
-  name = var.node_volume_name
-  size = 20
+  name      = var.node_volume_name
+  image_id  = openstack_images_image_v2.image.id
+  size      = 20
 }
 
 resource "openstack_compute_instance_v2" "node" {
     name        = var.instance_name
-    image_name  = var.image_name
     flavor_name = var.flavor_name
     key_pair    = var.key_name
 
