@@ -25,6 +25,7 @@
     add_host:
       name: "{{ infra_creation_out.outputs.node_ip.value }}"
       group: artstyle_nodes
+      ansible_user: ubuntu
       ansible_private_key_file: ~/OpenSKey
 
 - name: configure artstyle nodes
