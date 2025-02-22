@@ -31,7 +31,7 @@
 
 - name: configure artstyle nodes
   hosts: artstyle_nodes
-  becone: True
+  become: True
   tasks:
     - name: update packages
       apt:
