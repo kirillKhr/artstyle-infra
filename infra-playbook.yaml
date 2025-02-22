@@ -8,10 +8,10 @@
       overwrite_init: True
       project_path: "."
       variables:
-        openstack_auth_url: {{openstack_auth_url}}
-        openstack_username: {{openstack_username}}
-        openstack_password: {{openstack_password}}
-        openstack_domain_name: {{openstack_domain_name}}
+        openstack_auth_url: "{{ lookup('env','OS_AUTH_URL') }}"
+        openstack_username: "{{ lookup('env','OS_USERNAME') }}"
+        openstack_password: "{{ lookup('env','OS_PASSWORD') }}"
+        openstack_domain_name: "{{ lookup('env','OS_USER_DOMAIN_NAME') }}"
 
         node_volume_name: {{node_volume_name | default("khrustalyov_infra_terra_ansible")}}
         node_name: {{node_name | default("khrustalyov_infra_terra_ansible")}}
