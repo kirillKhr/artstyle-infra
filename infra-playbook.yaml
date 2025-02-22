@@ -4,8 +4,7 @@
   tasks:
   - name: create node
     terraform:
-      force_init: true
-      overwrite_init: true
+      force_init: True
       project_path: "."
       variables:
         openstack_auth_url: "{{ lookup('env','OS_AUTH_URL') }}"
