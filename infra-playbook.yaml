@@ -9,7 +9,7 @@
       variables:
         openstack_auth_url: "{{ lookup('env','OS_AUTH_URL') }}"
         openstack_username: "{{ lookup('env','OS_USERNAME') }}"
-        openstack_password: "{{ lookup('env','OS_PASSWORD') }}"
+        #openstack_password: "{{ lookup('env','OS_PASSWORD') }}"
         openstack_domain_name: "{{ lookup('env','OS_USER_DOMAIN_NAME') }}"
 
         node_volume_name: "{{ node_volume_name | default('khrustalyov_infra_terra_ansible') }}"
@@ -18,4 +18,7 @@
         image_name: "{{ image_name }}"
         flavor_name: "{{ flavor_name }}"
         network_name: "{{ network_name }}"
+    environment:
+        TF_VAR_openstack_password: "{{ lookup('env','OS_PASSWORD') }}"
+
     register: infra_creation_out
