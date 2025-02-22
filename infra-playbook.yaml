@@ -9,7 +9,6 @@
       variables:
         openstack_auth_url: "{{ lookup('env','OS_AUTH_URL') }}"
         openstack_username: "{{ lookup('env','OS_USERNAME') }}"
-        #openstack_password: "{{ lookup('env','OS_PASSWORD') }}"
         openstack_domain_name: "{{ lookup('env','OS_USER_DOMAIN_NAME') }}"
 
         node_volume_name: "{{ node_volume_name | default('khrustalyov_infra_terra_ansible') }}"
@@ -20,5 +19,18 @@
         network_name: "{{ network_name }}"
     environment:
         TF_VAR_openstack_password: "{{ lookup('env','OS_PASSWORD') }}"
-
     register: infra_creation_out
+
+  - name: get node ip4
+    add_host:
+      name: "{{ infra_creation_out.output.node_ip }}"
+      group: artstyle_nodes
+      ansible_private_key_file: ~/OpenSKey
+
+- name: configure artstyle nodes
+  hosts: artstyle_nodes
+  tasks:
+    - name: update packages
+      apt:
+        update_cach: yes
+        upgrade: yes
