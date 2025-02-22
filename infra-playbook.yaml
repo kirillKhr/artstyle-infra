@@ -5,7 +5,7 @@
   - name: create node
     terraform:
       force_init: True
-      project_path: "."
+      project_path: "./"
       variables:
         openstack_auth_url: "{{ lookup('env','OS_AUTH_URL') }}"
         openstack_username: "{{ lookup('env','OS_USERNAME') }}"
