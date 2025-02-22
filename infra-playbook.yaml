@@ -23,7 +23,7 @@
 
   - name: get node ip4
     add_host:
-      name: "{{ infra_creation_out.output.node_ip }}"
+      name: "{{ infra_creation_out.outputs.node_ip }}"
       group: artstyle_nodes
       ansible_private_key_file: ~/OpenSKey
 
