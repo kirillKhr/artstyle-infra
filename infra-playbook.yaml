@@ -2,6 +2,12 @@
   hosts: 127.0.0.1
   connection: local
   tasks:
+  - debug:
+      msg: "{{ lookup('env', 'HOME')+'/OpenSKey'+' '+'~' }}"
+  - shell: eval echo "~"
+    register: tilda
+  - debug:
+      msg: "{{ stdout.stdout_lines }}"
   - name: create node
     terraform:
       force_init: True
