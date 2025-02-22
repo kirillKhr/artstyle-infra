@@ -1,0 +1,22 @@
+- name: prepare infra for deploy
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+  - name: create node
+    terraform:
+      force_init: True
+      overwrite_init: True
+      project_path: "."
+      variables:
+        openstack_auth_url: {{openstack_auth_url}}
+        openstack_username: {{openstack_username}}
+        openstack_password: {{openstack_password}}
+        openstack_domain_name: {{openstack_domain_name}}
+
+        node_volume_name: {{node_volume_name | default("khrustalyov_infra_terra_ansible")}}
+        node_name: {{node_name | default("khrustalyov_infra_terra_ansible")}}
+        key_name: {{key_name}}
+        image_name: {{image_name}}
+        flavor_name: {{flavor_name}}
+        network_name: {{network_name}}
+    register: infra_creation_out
