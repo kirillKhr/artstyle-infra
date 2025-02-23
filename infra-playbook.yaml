@@ -36,6 +36,7 @@
       apt:
         update_cache: yes
         upgrade: yes
+      become: True
     - name: download docker install script
       get_url:
         url: https://get.docker.com
