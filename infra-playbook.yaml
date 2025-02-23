@@ -44,6 +44,7 @@
         mode: "0004"
     - name: install docker
       shell: ~/get-docker.sh
+      become_user: ubuntu
       become: True
 
 
