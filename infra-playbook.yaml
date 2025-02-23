@@ -41,7 +41,7 @@
       get_url:
         url: https://get.docker.com
         dest: ~/get-docker.sh
-        mode: "0004"
+        mode: "0001"
       register: docker_script
     - name: install docker
       shell: "{{ docker_script.dest }}"
