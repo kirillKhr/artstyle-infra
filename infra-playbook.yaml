@@ -41,8 +41,8 @@
       get_url:
         url: https://get.docker.com
         dest: ~/get-docker.sh
-        become_user: ubuntu
         mode: 755
+      become_user: ubuntu
     - name: install docker
       shell: ~/get-docker.sh
 
