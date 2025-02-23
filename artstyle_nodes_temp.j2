@@ -1,4 +1,4 @@
 [artstyle_nodes]
 {% for host in groups["artstyle_nodes"] %}
-{{host}} ansible_user={{hostvars[host].ansible_user}} ansible_ssh_private_key_file={{hostvars[host].ansible_ssh_key_file ansible_ssh_common_args='-o StrictHostKeyChecking=no'}} {{hostvars[host].ansible_facts.eth0.ipv4.address}} 
+{{host}} ansible_user={{hostvars[host].ansible_user}} ansible_ssh_private_key_file={{hostvars[host].ansible_ssh_key_file}} ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 {% endfor %}
