@@ -26,8 +26,13 @@
       name: "{{ infra_creation_out.outputs.node_ip.value }}"
       group: artstyle_nodes
       ansible_user: ubuntu
-      ansible_ssh_private_key_file: ~/OpenSKey
+      ansible_ssh_key_file: ~/OpenSKey
       ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
+  
+  - name: render arstyle nodes invenory file
+    template:
+      src: ./artstyle_nodes_temp.j2
+      dest: ./artstyle_nodes_temp.ini
 
   - name: wait for port 22 to become open and contain "OpenSSH"
     wait_for:
