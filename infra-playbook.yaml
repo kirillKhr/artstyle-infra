@@ -38,7 +38,7 @@
         update_cache: yes
         upgrade: yes
     - name: download docker install script
-      get_uri:
+      get_url:
         url: https://get.docker.com
         dest: ~/get-docker.sh
     - name: install docker
