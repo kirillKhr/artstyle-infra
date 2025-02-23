@@ -1,4 +1,4 @@
 [artstyle_nodes]
 {% for host in groups["artstyle_nodes"] %}
-{{hostvars[node].ansible_default_ipv4.address}} 
+{{hostvars[host].ansible_default_ipv4.address}} 
 {% endfor %}
