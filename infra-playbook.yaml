@@ -28,7 +28,8 @@
       ansible_user: ubuntu
       ansible_ssh_key_file: ~/OpenSKey
       ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
-  
+  - debug:
+      var=hostvars
   - name: render arstyle nodes invenory file
     template:
       src: ./artstyle_nodes_temp.j2
