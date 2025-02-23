@@ -40,6 +40,7 @@
     - name: download docker install script
       uri:
         url: https://get.docker.com
+        return_content: True
       register: get_docker_response
     - debug:
         msg: "{{ get_docker_response.content }}"
