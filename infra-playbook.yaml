@@ -36,15 +36,14 @@
       apt:
         update_cache: yes
         upgrade: yes
-      become: True
     - name: download docker install script
       get_url:
         url: https://get.docker.com
         dest: ~/get-docker.sh
-        mode: "0001"
-      register: docker_script
+        mode: "0100"
+      become: True
     - name: install docker
-      shell: "{{ docker_script.dest }}"
+      shell: ~/get-docker.sh
       become: True
 
 
