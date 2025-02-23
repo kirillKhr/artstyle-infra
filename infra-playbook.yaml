@@ -42,9 +42,9 @@
         url: https://get.docker.com
         dest: ~/get-docker.sh
         mode: "0004"
+      register: docker_script
     - name: install docker
-      shell: ~/get-docker.sh
-      become_user: ubuntu
+      shell: "{{ docker_script.dest }}"
       become: True
 
 
