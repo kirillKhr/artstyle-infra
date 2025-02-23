@@ -29,16 +29,16 @@
       ansible_ssh_private_key_file: ~/OpenSKey
       ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
 
+  - name: wait for port 22 to become open and contain "OpenSSH"
+    wait_for:
+      port: 22
+      host: '{{ infra_creation_out.outputs.node_ip.value }}'
+      search_regex: OpenSSH
+      delay: 10
+
 - name: configure artstyle nodes
   hosts: artstyle_nodes
   become: True
-  gather_facts: false
-  pre_tasks:
-    - setup:
-      register: setup_status
-      until: setup_status is success
-      delay: 10
-      retries: 30
   tasks:
     - name: update packages
       apt:
