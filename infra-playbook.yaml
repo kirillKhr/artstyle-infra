@@ -33,7 +33,7 @@
   - name: render arstyle nodes invenory file
     template:
       src: ./artstyle_nodes_temp.j2
-      dest: ./artstyle_nodes_temp.ini
+      dest: ./artstyle_nodes.ini
 
   - name: wait for port 22 to become open and contain "OpenSSH"
     wait_for:
